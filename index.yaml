@@ -3,7 +3,7 @@ entries:
   Hashicorp-Vault:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-08T17:27:23.310332633-06:00"
+    created: "2022-08-08T17:37:36.550185915-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -18,32 +18,32 @@ entries:
       - vault-bootstrap
       version: 0.1.0
     description: Helm chart to deploy Vault to an OpenShift Cluster
-    digest: e62cadde6e17c35a143e5a31d3488c67293a2abae83c0e8880d41232bf220dd6
+    digest: ce93cea74f31306f29464f3857cf8a2bedc4fcc6661bcb60d41c7cc3e9de88bd
     name: Hashicorp-Vault
     type: application
     urls:
-    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/Hashicorp-Vault-0.0.1.tgz
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/Hashicorp-Vault-0.0.1.tgz
     version: 0.0.1
   istio:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-08T17:27:23.310494577-06:00"
+    created: "2022-08-08T17:37:36.550364229-06:00"
     description: A Helm chart for Kubernetes
-    digest: 9da2b2373233aada337e40e8636207325d4909287c60b65b48f00b081f02a534
+    digest: 096f7a905f697a5539ecf12573d638dcacdbffb75526efb683716286f09a2447
     name: istio
     type: application
     urls:
-    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/istio-0.1.0.tgz
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/istio-0.1.0.tgz
     version: 0.1.0
   servicemesh:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-08T17:27:23.310644355-06:00"
+    created: "2022-08-08T17:37:36.550461388-06:00"
     description: A Helm chart for Kubernetes
-    digest: 6aa6f2c9a24c307e07789e3028c9f583dfd9ce478d61684611e18722575e597a
+    digest: 9cf9a1417824bd56a5a0deba21c95c3201a7d9e7346d0d26a5616e7f6af4b7eb
     name: servicemesh
     type: application
     urls:
-    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/servicemesh-0.1.0.tgz
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/servicemesh-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-08T17:27:23.307547704-06:00"
+generated: "2022-08-08T17:37:36.547302341-06:00"
