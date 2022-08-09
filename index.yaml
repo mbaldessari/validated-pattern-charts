@@ -3,7 +3,7 @@ entries:
   Hashicorp-Vault:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-09T13:55:38.836559156-06:00"
+    created: "2022-08-09T13:59:54.083075435-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -18,32 +18,32 @@ entries:
       - vault-bootstrap
       version: 0.1.0
     description: Helm chart to deploy Vault to an OpenShift Cluster
-    digest: ec5b29e972733050f5a7669124f58e6b0d80a97a23755f0e3f889b1d7ac0f2be
+    digest: 890d890fd7971bd2d009ae78692ce2d0daa21c57d54cedd9d6e7272f089c5c73
     name: Hashicorp-Vault
     type: application
     urls:
-    - https://mattiaperi.github.io/helm-chart/charts/Hashicorp-Vault-0.0.1.tgz
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/Hashicorp-Vault-0.0.1.tgz
     version: 0.0.1
   istio:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-09T13:55:38.836773312-06:00"
+    created: "2022-08-09T13:59:54.083258841-06:00"
     description: A Helm chart for Kubernetes
-    digest: 12cce8d3f179688e910cf6c6a98fee4d11ef2a54e7873e05c18318f9e4b5ad38
+    digest: 2ccd3f59438f7dbb52a084037abbe1a5e4e767f497f2335a5a73a1eaa9729fcc
     name: istio
     type: application
     urls:
-    - https://mattiaperi.github.io/helm-chart/charts/istio-0.1.0.tgz
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/istio-0.1.0.tgz
     version: 0.1.0
   servicemesh:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-09T13:55:38.836885137-06:00"
+    created: "2022-08-09T13:59:54.08336779-06:00"
     description: A Helm chart for Kubernetes
-    digest: 9d1d36b7f6b694f4db16e51054a69d1a10348758398542fecb9188a4831e8243
+    digest: c371fd03fd14abf82609149344c51fb4fe2635a4ee5aa4efde9ee956b2ed06d2
     name: servicemesh
     type: application
     urls:
-    - https://mattiaperi.github.io/helm-chart/charts/servicemesh-0.1.0.tgz
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/servicemesh-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-09T13:55:38.833515687-06:00"
+generated: "2022-08-09T13:59:54.080310089-06:00"
