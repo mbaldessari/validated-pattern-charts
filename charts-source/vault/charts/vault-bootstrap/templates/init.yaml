@@ -36,7 +36,7 @@ spec:
             VAULT=$(oc -n hashicorp get pod -lapp.kubernetes.io/name=vault -o custom-columns=.:.metadata.name --no-headers)
 
             if [ -z $VAULT ]; then
-              echo "Waiting for vault pod to initialize.
+              echo "Waiting for vault pod to initialize."
               exit 1
             else
               echo "Found pod: $VAULT"
