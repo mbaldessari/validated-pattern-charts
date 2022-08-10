@@ -33,18 +33,31 @@ spec:
             # Better rollout pod check
             sleep 30
 
-            VAULT=$(oc -n {{ .Release.Namespace }} get pod -lapp.kubernetes.io/name=vault -o custom-columns=.:.metadata.name --no-headers)
+            VAULT=$(oc -n hashicorp get pod -lapp.kubernetes.io/name=vault -o custom-columns=.:.metadata.name --no-headers)
 
-            echo "Found pod: $VAULT"
+            if [ -z $VAULT ]; then
+              echo "Waiting for vault pod to initialize.
+              exit 1
+            else
+              echo "Found pod: $VAULT"
+            fi
 
-            oc -n {{ .Release.Namespace }} exec ${VAULT} --  vault operator init -tls-skip-verify -key-shares=1 -key-threshold=1 >/tmp/init.txt
+            oc -n hashicorp exec ${VAULT} --  vault operator init -tls-skip-verify -key-shares=1 -key-threshold=1 >/tmp/init.txt
 
-            KEYS=$(cat /tmp/init.txt|grep "Unseal Key 1"|cut -d':' -f2| tr -d ' ')
-            VAULT_TOKEN=$(cat /tmp/init.txt|grep "Initial Root Token"|cut -d':' -f2| tr -d ' ')
+            if [ $? == 0 ]; then
+              echo "Extracting initial root token"
+              KEYS=$(cat /tmp/init.txt|grep "Unseal Key 1"|cut -d':' -f2| tr -d ' ')
 
-            echo "KEYS=${KEYS}" > /tmp/vault.env
-            echo "VAULT_TOKEN=${VAULT_TOKEN}" >> /tmp/vault.env
+              VAULT_TOKEN=$(cat /tmp/init.txt|grep "Initial Root Token"|cut -d':' -f2| tr -d ' ')
 
-            # Secret must not part of the release
-            oc create secret generic {{ include "vault-bootstrap.fullname" . }} --from-env-file=/tmp/vault.env
+              echo "KEYS=${KEYS}" > /tmp/vault.env
+              echo "VAULT_TOKEN=${VAULT_TOKEN}" >> /tmp/vault.env
+
+              # Secret must not part of the release
+              echo "Creating bootstrap secret"
+              oc create secret generic vault-vault-bootstrap --from-env-file=/tmp/vault.env
+            else
+              echo "Vault already initialized"
+              exit 0
+            fi
 {{- end }}
