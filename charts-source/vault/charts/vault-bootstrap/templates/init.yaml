@@ -9,7 +9,7 @@ metadata:
   annotations:
     "helm.sh/hook": post-install
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
-    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-weight": "-5"
 spec:
   backoffLimit: 0
   ttlSecondsAfterFinished: 120
@@ -31,20 +31,29 @@ spec:
             #!/bin/bash
 
             # Better rollout pod check
-            sleep 30
+            # sleep 30
 
             VAULT=$(oc -n hashicorp get pod -lapp.kubernetes.io/name=vault -o custom-columns=.:.metadata.name --no-headers)
 
-            if [ -z $VAULT ]; then
+            while [ -z $VAULT ]
+            do
               echo "Waiting for vault pod to initialize."
-              exit 1
+              VAULT=$(oc -n hashicorp get pod -lapp.kubernetes.io/name=vault -o custom-columns=.:.metadata.name --no-headers)
+              sleep 2
+            done
+            echo "Found pod: $VAULT"
+
+            echo "Checking vault status"
+            RESULT=$(oc -n hashicorp exec ${VAULT} --  vault status | grep Initialized)
+            if [[ "$RESULT" == *"true"* ]]; then
+              INITIALIZED=1
             else
-              echo "Found pod: $VAULT"
+              INITIALIZED=0
             fi
+            echo "Vault initialized: $INITIALIZED"
 
-            oc -n hashicorp exec ${VAULT} --  vault operator init -tls-skip-verify -key-shares=1 -key-threshold=1 >/tmp/init.txt
-
-            if [ $? == 0 ]; then
+            if [ $INITIALIZED -eq 0 ]; then
+              oc -n hashicorp exec ${VAULT} --  vault operator init -tls-skip-verify -key-shares=1 -key-threshold=1 >/tmp/init.txt
               echo "Extracting initial root token"
               KEYS=$(cat /tmp/init.txt|grep "Unseal Key 1"|cut -d':' -f2| tr -d ' ')
 
