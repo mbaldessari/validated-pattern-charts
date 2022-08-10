@@ -1,35 +1,11 @@
 apiVersion: v1
 entries:
-  hashicorp-vault:
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2022-08-09T18:20:29.654458501-06:00"
-    dependencies:
-    - condition: vault.enabled
-      name: vault
-      repository: https://helm.releases.hashicorp.com
-      tags:
-      - hashicorp-vault
-      version: v0.20.1
-    - condition: vault-bootstrap.enabled
-      name: vault-bootstrap
-      repository: ""
-      tags:
-      - vault-bootstrap
-      version: 0.1.0
-    description: Helm chart to deploy Vault to an OpenShift Cluster
-    digest: adce13a9ce2939a69003cb8b050019bb1a8330aaf4effa12dc5e4dba7870a5dc
-    name: hashicorp-vault
-    type: application
-    urls:
-    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/hashicorp-vault-0.0.1.tgz
-    version: 0.0.1
   istio:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-09T18:20:29.654650741-06:00"
+    created: "2022-08-10T08:56:15.038101582-06:00"
     description: A Helm chart for Kubernetes
-    digest: 14dd6885c9da72b1c75f3fc8fa0b3d33865bf5705f4e1fe1fdbf0b1bcadfe4e9
+    digest: ead7146ec2899a31aa8b04ca0fddc16b77304ef34f18020ce89ab83576e8e730
     name: istio
     type: application
     urls:
@@ -38,12 +14,36 @@ entries:
   servicemesh:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-09T18:20:29.654756288-06:00"
+    created: "2022-08-10T08:56:15.038205656-06:00"
     description: A Helm chart for Kubernetes
-    digest: 5bac719d2c627b5a8e0c9c546e059cdfd0f7332d10cdfc7528c471631b8f4c2f
+    digest: 0f3d3020bd73c9787663e02f686700e482f66b0e0bbae1da9548874f65881c95
     name: servicemesh
     type: application
     urls:
     - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/servicemesh-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-09T18:20:29.651445211-06:00"
+  vault:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-08-10T08:56:15.040888946-06:00"
+    dependencies:
+    - condition: vault.enabled
+      name: vault
+      repository: https://helm.releases.hashicorp.com
+      tags:
+      - vault
+      version: v0.20.1
+    - condition: vault-bootstrap.enabled
+      name: vault-bootstrap
+      repository: ""
+      tags:
+      - vault-bootstrap
+      version: 0.1.0
+    description: Helm chart to deploy Vault to an OpenShift Cluster
+    digest: b8db9d04fb9e3650d31a3a7fc50ad73668e3d1f72d4c0d7cde6bf28ed8f61fa6
+    name: vault
+    type: application
+    urls:
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/vault-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-08-10T08:56:15.037820681-06:00"
