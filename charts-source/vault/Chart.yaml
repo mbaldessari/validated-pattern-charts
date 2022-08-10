@@ -1,5 +1,5 @@
 apiVersion: v2
-name: hashicorp-vault
+name: vault
 description: Helm chart to deploy Vault to an OpenShift Cluster
 type: application
 version: 0.0.1
@@ -10,7 +10,7 @@ dependencies:
     repository: https://helm.releases.hashicorp.com
     condition: vault.enabled
     tags:
-      - hashicorp-vault
+      - vault
   - name: vault-bootstrap
     version: 0.1.0
     condition: vault-bootstrap.enabled
