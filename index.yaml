@@ -1,9 +1,9 @@
 apiVersion: v1
 entries:
-  Hashicorp-Vault:
+  hashicorp-vault:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-09T13:59:54.083075435-06:00"
+    created: "2022-08-09T18:20:29.654458501-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -18,18 +18,18 @@ entries:
       - vault-bootstrap
       version: 0.1.0
     description: Helm chart to deploy Vault to an OpenShift Cluster
-    digest: 890d890fd7971bd2d009ae78692ce2d0daa21c57d54cedd9d6e7272f089c5c73
-    name: Hashicorp-Vault
+    digest: adce13a9ce2939a69003cb8b050019bb1a8330aaf4effa12dc5e4dba7870a5dc
+    name: hashicorp-vault
     type: application
     urls:
-    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/Hashicorp-Vault-0.0.1.tgz
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/hashicorp-vault-0.0.1.tgz
     version: 0.0.1
   istio:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-09T13:59:54.083258841-06:00"
+    created: "2022-08-09T18:20:29.654650741-06:00"
     description: A Helm chart for Kubernetes
-    digest: 2ccd3f59438f7dbb52a084037abbe1a5e4e767f497f2335a5a73a1eaa9729fcc
+    digest: 14dd6885c9da72b1c75f3fc8fa0b3d33865bf5705f4e1fe1fdbf0b1bcadfe4e9
     name: istio
     type: application
     urls:
@@ -38,12 +38,12 @@ entries:
   servicemesh:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-09T13:59:54.08336779-06:00"
+    created: "2022-08-09T18:20:29.654756288-06:00"
     description: A Helm chart for Kubernetes
-    digest: c371fd03fd14abf82609149344c51fb4fe2635a4ee5aa4efde9ee956b2ed06d2
+    digest: 5bac719d2c627b5a8e0c9c546e059cdfd0f7332d10cdfc7528c471631b8f4c2f
     name: servicemesh
     type: application
     urls:
     - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/servicemesh-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-09T13:59:54.080310089-06:00"
+generated: "2022-08-09T18:20:29.651445211-06:00"
