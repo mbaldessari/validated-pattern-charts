@@ -31,7 +31,7 @@ spec:
             #!/bin/bash
 
             # Better rollout pod check
-            # sleep 30
+            sleep 20
 
             VAULT=$(oc -n hashicorp get pod -lapp.kubernetes.io/name=vault -o custom-columns=.:.metadata.name --no-headers)
 
@@ -43,6 +43,15 @@ spec:
             done
             echo "Found pod: $VAULT"
 
+            RUNNING=$(oc get pod/$VAULT | grep -v NAME | awk '{ print $3 }' | grep Running)
+            while [ -z $RUNNING ]
+            do
+              echo "Waiting on $VAULT POD status to update to Running"
+              sleep 2
+              RUNNING=$(oc get pod/$VAULT  | grep -v NAME | awk '{ print $3 }' | grep Running)
+            done
+
+            echo "$VAULT POD status [ $RUNNING ]"
             echo "Checking vault status"
             RESULT=$(oc -n hashicorp exec ${VAULT} --  vault status | grep Initialized)
             if [[ "$RESULT" == *"true"* ]]; then
