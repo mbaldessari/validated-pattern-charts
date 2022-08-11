@@ -21,4 +21,4 @@ vault:
   port: 8200
   image:
     repository: "hashicorp/vault"
-    tag: "1.10.3"
+    tag: "1.11.2"
