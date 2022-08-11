@@ -62,20 +62,35 @@ spec:
             echo "Vault initialized: $INITIALIZED"
 
             if [ $INITIALIZED -eq 0 ]; then
-              oc -n hashicorp exec ${VAULT} --  vault operator init -tls-skip-verify -key-shares=1 -key-threshold=1 >/tmp/init.txt
-              echo "Extracting initial root token"
-              KEYS=$(cat /tmp/init.txt|grep "Unseal Key 1"|cut -d':' -f2| tr -d ' ')
+              # We are going to check to see if we left some debris in the namespace hashicorp
+              SECRET=$(oc get secrets | grep -E '(^|\s)vault-vault-bootstrap($|\s)' | awk '{print $1}')
 
-              VAULT_TOKEN=$(cat /tmp/init.txt|grep "Initial Root Token"|cut -d':' -f2| tr -d ' ')
+              if [ ! -z $SECRET ]; then 
+                echo "Found secret in the hashicorp namespace [$SECRET] with vault keys!"
+                echo "Hopefully these are still valid.  If not follow these steps:"
+                echo " 1 - delete the vault ArgoCD application from the datacenter or hub ArgoCD instance"
+                echo " 2 - delete the hashicorp namespace. e.g. oc delete ns hashicorp"
+              else 
+                oc -n hashicorp exec ${VAULT} --  vault operator init -tls-skip-verify -key-shares=1 -key-threshold=1 >/tmp/init.txt
+                echo "Extracting initial root token"
+                KEYS=$(cat /tmp/init.txt|grep "Unseal Key 1"|cut -d':' -f2| tr -d ' ')
 
-              echo "KEYS=${KEYS}" > /tmp/vault.env
-              echo "VAULT_TOKEN=${VAULT_TOKEN}" >> /tmp/vault.env
+                VAULT_TOKEN=$(cat /tmp/init.txt|grep "Initial Root Token"|cut -d':' -f2| tr -d ' ')
 
-              # Secret must not part of the release
-              echo "Creating bootstrap secret"
-              oc create secret generic vault-vault-bootstrap --from-env-file=/tmp/vault.env
+                echo "KEYS=${KEYS}" > /tmp/vault.env
+                echo "VAULT_TOKEN=${VAULT_TOKEN}" >> /tmp/vault.env
+
+                # Secret must not part of the release
+                echo "Creating bootstrap secret"
+                oc create secret generic vault-vault-bootstrap --from-env-file=/tmp/vault.env
+              fi
             else
               echo "Vault already initialized"
+              SECRET=$(oc get secrets | grep -E '(^|\s)vault-vault-bootstrap($|\s)' | awk '{print $1}')
+
+              if [ ! -z $SECRET ]; then 
+                echo "Found secret in the hashicorp namespace [$SECRET] with vault keys!"
+              fi
               exit 0
             fi
 {{- end }}
