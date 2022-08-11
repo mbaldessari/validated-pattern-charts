@@ -3,9 +3,9 @@ entries:
   istio:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-10T21:05:02.634338669-06:00"
+    created: "2022-08-10T21:12:35.378240401-06:00"
     description: A Helm chart for Kubernetes
-    digest: 7e3c81d09905d93219d1009120a311bd2c7dcdfea39b047dcda825aca3fa5861
+    digest: f84c77d01c495c864a76cab5aa00743fbc01952616899251df512e81c0a9c4bb
     name: istio
     type: application
     urls:
@@ -14,9 +14,9 @@ entries:
   servicemesh:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-10T21:05:02.634453719-06:00"
+    created: "2022-08-10T21:12:35.378374514-06:00"
     description: A Helm chart for Kubernetes
-    digest: 052e34d7ca4a4a2d984a373c0ea7b511a755a45615d6f677f93ca6b3a1ca393b
+    digest: 36e4b0806fd12d669a567bd0974c3e97d09a67e462b89cbb61125c2cfb6980e7
     name: servicemesh
     type: application
     urls:
@@ -25,7 +25,7 @@ entries:
   vault:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-10T21:05:02.6392954-06:00"
+    created: "2022-08-10T21:12:35.383415481-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -38,9 +38,9 @@ entries:
       repository: ""
       tags:
       - vault-bootstrap
-      version: 0.1.0
+      version: 0.1.1
     description: Helm chart to deploy Vault to an OpenShift Cluster
-    digest: 82af813197d88acb6cc7760892ef2f2eaeaf15c0bfe50a9428c6ae1119bbacfc
+    digest: 7e80ef322dd673f4fbbef20a7d2221b99ff1acd342edd124d8d3b856ae6d1733
     name: vault
     type: application
     urls:
@@ -48,7 +48,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-10T21:05:02.63705049-06:00"
+    created: "2022-08-10T21:12:35.380639958-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -69,4 +69,4 @@ entries:
     urls:
     - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/vault-0.0.1.tgz
     version: 0.0.1
-generated: "2022-08-10T21:05:02.634036333-06:00"
+generated: "2022-08-10T21:12:35.37757987-06:00"
