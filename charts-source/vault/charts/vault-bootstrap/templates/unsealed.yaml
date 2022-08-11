@@ -63,7 +63,6 @@ spec:
                 oc create secret generic vault-vault-bootstrap --from-env-file=/tmp/vault.env
               else
                 echo "Vault already initialized"
-                exit 0
               fi
               vault status -tls-skip-verify --format=yaml >/tmp/status.txt
 
