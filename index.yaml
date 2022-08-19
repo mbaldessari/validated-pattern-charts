@@ -3,9 +3,9 @@ entries:
   issuer:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.095755728-06:00"
+    created: "2022-08-19T11:28:45.399531823-06:00"
     description: Bootstrap Cert Manager Issuer Helm chart for Kubernetes
-    digest: 84eab80cc930b7ed2f81c5c561db2f68c192eeb4d7d794bafb0c67bf47997613
+    digest: 091e5a659423679070172f3f21849d98de3fb17ec7e3f0930db9b1d448d9512c
     name: issuer
     type: application
     urls:
@@ -14,9 +14,9 @@ entries:
   istio:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-19T11:22:51.095920535-06:00"
+    created: "2022-08-19T11:28:45.399691702-06:00"
     description: A Helm chart for Kubernetes
-    digest: a31d27909883b45876e2937b98c438211a7649c948815d183ae72ea262001bb9
+    digest: 132a9a032878027b9332c728d6c3df75f919d4aa7fb073c2cd724eeceb0b5b9d
     name: istio
     type: application
     urls:
@@ -25,9 +25,9 @@ entries:
   servicemesh:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-19T11:22:51.096040516-06:00"
+    created: "2022-08-19T11:28:45.399781392-06:00"
     description: A Helm chart for Kubernetes
-    digest: 76a1b7d7ffda3a9b9d47746daba9873d99db94f7df9415f04ff1fcf9f47af51d
+    digest: aaa94d876684a1fb1baa0ff474ee1a485c9ef6378046c52f0452ef74fb14deed
     name: servicemesh
     type: application
     urls:
@@ -36,7 +36,30 @@ entries:
   vault:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.100800993-06:00"
+    created: "2022-08-19T11:28:45.406719076-06:00"
+    dependencies:
+    - condition: vault.enabled
+      name: vault
+      repository: https://helm.releases.hashicorp.com
+      tags:
+      - vault
+      version: v0.20.1
+    - condition: vault-bootstrap.enabled
+      name: vault-bootstrap
+      repository: ""
+      tags:
+      - vault-bootstrap
+      version: 0.1.5
+    description: Helm chart to deploy Vault to an OpenShift Cluster
+    digest: 3e9b7fc0a2fd1ebb1970e259f5c0ec7da3586284b7ac873099403381b397a729
+    name: vault
+    type: application
+    urls:
+    - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/vault-0.0.11.tgz
+    version: 0.0.11
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-08-19T11:28:45.40452802-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -59,7 +82,7 @@ entries:
     version: 0.0.10
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.119344996-06:00"
+    created: "2022-08-19T11:28:45.4250784-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -82,7 +105,7 @@ entries:
     version: 0.0.9
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.11679654-06:00"
+    created: "2022-08-19T11:28:45.42295414-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -105,7 +128,7 @@ entries:
     version: 0.0.8
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.114728942-06:00"
+    created: "2022-08-19T11:28:45.420499029-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -128,7 +151,7 @@ entries:
     version: 0.0.7
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.112593834-06:00"
+    created: "2022-08-19T11:28:45.418370678-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -151,7 +174,7 @@ entries:
     version: 0.0.6
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.110070078-06:00"
+    created: "2022-08-19T11:28:45.41576843-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -174,7 +197,7 @@ entries:
     version: 0.0.5
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.108003817-06:00"
+    created: "2022-08-19T11:28:45.413792387-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -197,7 +220,7 @@ entries:
     version: 0.0.4
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.105414385-06:00"
+    created: "2022-08-19T11:28:45.411234361-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -220,7 +243,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.103365458-06:00"
+    created: "2022-08-19T11:28:45.409231606-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -243,7 +266,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-19T11:22:51.098666515-06:00"
+    created: "2022-08-19T11:28:45.40240685-06:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -264,4 +287,4 @@ entries:
     urls:
     - https://hybrid-cloud-patterns.github.io/validated-pattern-charts/charts/vault-0.0.1.tgz
     version: 0.0.1
-generated: "2022-08-19T11:22:51.095491943-06:00"
+generated: "2022-08-19T11:28:45.399269049-06:00"
