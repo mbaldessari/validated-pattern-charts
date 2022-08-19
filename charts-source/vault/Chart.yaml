@@ -2,11 +2,11 @@ apiVersion: v2
 name: vault
 description: Helm chart to deploy Vault to an OpenShift Cluster
 type: application
-version: 0.0.11
+version: 0.0.12
 appVersion: "1.0.0"
 dependencies: 
   - name: vault
-    version: v0.20.1
+    version: v0.21.0
     repository: https://helm.releases.hashicorp.com
     condition: vault.enabled
     tags:
