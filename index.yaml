@@ -1,14 +1,29 @@
 apiVersion: v1
 entries:
+  golang-external-secrets:
+  - apiVersion: v2
+    created: "2022-09-27T20:48:53.112762839+02:00"
+    dependencies:
+    - name: external-secrets
+      repository: https://charts.external-secrets.io
+      version: 0.5.9
+    description: A Helm chart to configure the golang-based external-secrets
+    digest: e46d86a11a2b086705e8255d1399ab994c8584dc589f551073da6f90181ef5bc
+    keywords:
+    - pattern
+    name: golang-external-secrets
+    urls:
+    - https://mbaldessari.github.io/validated-pattern-charts/charts/golang-external-secrets-0.0.1.tgz
+    version: 0.0.1
   hashicorp-vault:
   - apiVersion: v2
-    created: "2022-09-27T20:38:45.901553455+02:00"
+    created: "2022-09-27T20:48:53.115128358+02:00"
     dependencies:
     - name: vault
       repository: https://helm.releases.hashicorp.com
       version: 0.22.0
     description: A Helm chart to configure Hashicorp's vault
-    digest: a6aaf4187884287d71a6f6c06b88b96645fad820ac7b401da4039548fcf8092f
+    digest: 1b6ef34ab7ea85b4498c60a07864625a2ea62ca050646bf68db420d9d6b22a07
     keywords:
     - pattern
     name: hashicorp-vault
@@ -29,9 +44,9 @@ entries:
   istio:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-09-27T20:38:45.901752339+02:00"
+    created: "2022-09-27T20:48:53.115319738+02:00"
     description: A Helm chart for Kubernetes
-    digest: d334e1246ae5ff705ba714f25a6c4ccc1415caa008453ee0d796b042e0628d96
+    digest: 6452e2342bbde21c67f12c85eeb149cb1d3731923a020072ae811ea61d1ba2c1
     name: istio
     type: application
     urls:
@@ -40,9 +55,9 @@ entries:
   servicemesh:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-09-27T20:38:45.901872194+02:00"
+    created: "2022-09-27T20:48:53.115432509+02:00"
     description: A Helm chart for Kubernetes
-    digest: 1f48843e829d82d653526f5299b6733a3de347a964761dc710650f6a0a99d6db
+    digest: db38fcf2552ece2b803842b01cb9adf74f6446f0af9a7451a388013d02aa0095
     name: servicemesh
     type: application
     urls:
@@ -51,7 +66,7 @@ entries:
   vault:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.913902004+02:00"
+    created: "2022-09-27T20:48:53.128253581+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -66,7 +81,7 @@ entries:
       - vault-bootstrap
       version: 0.1.5
     description: Helm chart to deploy Vault to an OpenShift Cluster
-    digest: b796ccd7533dd0f7e30ba8e7926ea6f5b7a393a31363001af05a34f168a4a2b9
+    digest: 8f094a22d4d9df8ef01f0cfc9b5593e64985e12e39993649a09774d59406413a
     name: vault
     type: application
     urls:
@@ -74,7 +89,7 @@ entries:
     version: 0.0.13
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.911565687+02:00"
+    created: "2022-09-27T20:48:53.12539157+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -97,7 +112,7 @@ entries:
     version: 0.0.12
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.90875544+02:00"
+    created: "2022-09-27T20:48:53.123034276+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -120,7 +135,7 @@ entries:
     version: 0.0.11
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.906840493+02:00"
+    created: "2022-09-27T20:48:53.119967621+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -143,7 +158,7 @@ entries:
     version: 0.0.10
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.937285164+02:00"
+    created: "2022-09-27T20:48:53.15400515+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -166,7 +181,7 @@ entries:
     version: 0.0.9
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.933824365+02:00"
+    created: "2022-09-27T20:48:53.150826454+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -189,7 +204,7 @@ entries:
     version: 0.0.8
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.93037098+02:00"
+    created: "2022-09-27T20:48:53.146970898+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -212,7 +227,7 @@ entries:
     version: 0.0.7
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.927018054+02:00"
+    created: "2022-09-27T20:48:53.143511416+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -235,7 +250,7 @@ entries:
     version: 0.0.6
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.924675104+02:00"
+    created: "2022-09-27T20:48:53.139822964+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -258,7 +273,7 @@ entries:
     version: 0.0.5
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.92269692+02:00"
+    created: "2022-09-27T20:48:53.136800581+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -281,7 +296,7 @@ entries:
     version: 0.0.4
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.920724436+02:00"
+    created: "2022-09-27T20:48:53.134126413+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -304,7 +319,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.916701771+02:00"
+    created: "2022-09-27T20:48:53.130774041+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -327,7 +342,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-09-27T20:38:45.904824648+02:00"
+    created: "2022-09-27T20:48:53.117696588+02:00"
     dependencies:
     - condition: vault.enabled
       name: vault
@@ -348,4 +363,4 @@ entries:
     urls:
     - https://mbaldessari.github.io/validated-pattern-charts/charts/vault-0.0.1.tgz
     version: 0.0.1
-generated: "2022-09-27T20:38:45.899134122+02:00"
+generated: "2022-09-27T20:48:53.110519378+02:00"
